@@ -80,4 +80,3 @@ const observer = new IntersectionObserver((entries, obs) => {
 
 
 counters.forEach(counter => observer.observe(counter));
-
