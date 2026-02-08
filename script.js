@@ -46,17 +46,17 @@ const runCounter = (counter) => {
 
         let value;
 
-        if(decimal > 0){
+        if (decimal > 0) {
             value = current.toFixed(decimal);
-        }else{
+        } else {
             value = Math.floor(current).toLocaleString();
         }
 
         counter.textContent = value + suffix;
 
-        if(progress < 1){
+        if (progress < 1) {
             requestAnimationFrame(update);
-        }else{
+        } else {
             counter.textContent = target.toLocaleString() + suffix;
         }
     };
@@ -69,14 +69,16 @@ const observer = new IntersectionObserver((entries, obs) => {
 
     entries.forEach(entry => {
 
-        if(entry.isIntersecting){
+        if (entry.isIntersecting) {
             runCounter(entry.target);
             obs.unobserve(entry.target); // run only once
         }
 
     });
 
-},{ threshold: 0.6 });
+}, { threshold: 0.6 });
 
 
 counters.forEach(counter => observer.observe(counter));
+
+
